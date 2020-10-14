@@ -1,0 +1,15 @@
+package com.dividindo.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping ("/ola")
+public class DividindoController {
+	
+	@GetMapping
+	public String Dividir () {
+		return " O grupo de mais importância na minha vida é meu grupo de amigos de infância.\nPraticamente todos os dia nos reunimos para jogar algum jogo online e conversarmos sobre a vida.\nDevido as mudanças que a vida adulta nos impõe, com muitas obrigações e responsabilidades, esse tipo de contato é o que nos mantém próximos. ";
+	}
+}

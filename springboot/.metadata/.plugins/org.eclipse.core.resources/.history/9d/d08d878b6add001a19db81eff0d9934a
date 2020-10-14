@@ -1,0 +1,44 @@
+/*
+ * Elabore um programa que calcule o que deve ser pago por um produto, considerando o preço normal de etiqueta e a escolha da condição de pagamento.
+ * Utilize os códigos da tabela a seguir para ler qual a condição de pagamento escolhida e efetuar o cálculo adequado. 
+Código Condição de pagamento 
+1 À vista em dinheiro ou cheque, recebe 20% de desconto 
+2 À vista no cartão de crédito, recebe 15% de desconto 
+3 Em duas vezes, preço normal de etiqueta sem juros 
+4 Em três vezes, preço normal de etiqueta mais juros de 10%
+
+ */
+
+package revisao;
+
+import java.util.Scanner;
+
+public class exercicio1 {
+	public static void main (String [] args) {
+		Scanner entrada = new Scanner (System.in);
+		float preco;
+		int op;
+		
+		System.out.printf("Digite o preço do produto: ");
+		preco = entrada.nextFloat();
+		
+		System.out.println("Escolha a forma de pagamento: \n1 -- Pagamento à vista em dinheito ou cheque \n2 -- Pagamento à vista no cartão de crédito \n3 -- Pagamento em duas vezes \n4 -- Pagamento em três vezes");
+		op = entrada.nextInt();
+		
+		switch(op) {
+		case 1:
+			preco = preco - (float) (preco*0.2);
+			System.out.printf("O valor a ser pago à vista em dinheiro ou cheque é R$ ",preco);
+		case 2:
+			preco = preco - (float) (preco*0.15);
+			System.out.printf("O valor a ser pago à vista no cartão de crédito é R$ ",preco);
+		case 3:
+			
+			System.out.printf("O valor a ser pago parcelado em duas vezes é R$ ",preco);
+		case 4:
+			preco = preco + (float) (preco*0.1);
+			System.out.printf("O valor a ser pago parcelado em três vezes é R$ ",preco);
+		}
+		
+	}
+}

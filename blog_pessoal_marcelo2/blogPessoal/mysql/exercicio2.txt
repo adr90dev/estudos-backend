@@ -1,0 +1,27 @@
+create database db_Ecommerce;
+use db_Ecommerce;
+create table tb_produtos (
+	id bigint(5) auto_increment,
+	descrição varchar(50),
+	marca varchar(50),
+    valor decimal (10,2),
+    ativo boolean,
+    
+    primary key
+)
+insert into tb_produtos (descrição, marca, valor, ativo) values ("camiseta", "Nike", 89.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("shorts", "Nike", 99.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("boné", "Nike", 149.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("meia", "Nike", 39.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("tênis", "Nike",499.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("chuteira", "Nike", 209.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("moletom", "Nike", 269.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("jaqueta", "Nike", 199.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("touca", "Nike", 49.90, true);
+insert into tb_produtos (descrição, marca, valor, ativo) values ("regata", "Nike", 69.90, true);
+
+select * from tb_produtos where valor > 500;
+
+select * from tb_produtos where valor < 500;
+
+update tb_produtos set ativo = false where id = 1

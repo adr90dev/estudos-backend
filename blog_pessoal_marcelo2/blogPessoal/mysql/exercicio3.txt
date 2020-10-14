@@ -1,0 +1,28 @@
+create database db_Escola
+create database db_Escola
+create table tb_alunos (
+	id bigint(5) auto_increment,
+    nome varchar(50),
+    idade int,
+    mediaNota int,
+    serie int,
+    periodo varchar (10),
+    
+    primary key(id)
+)
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Francisco do Nascimento", 13, 5, 8, "manhã");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Ana Carolina de Souza Braga", 14, 3, 7, "tarde");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Fernanda Rangel", 15, 6, 6, "manhã");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Danielle do Nascimento", 15, 10, 5, "tarde");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Celia Maria", 17, 5, 8, "manhã");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Jessica Pereira", 16, 7, 8, "manhã");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Mirella Santos", 12, 6, 7, "manhã");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Carolina Drumond", 11, 8, 7, "tarde");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Natalia Vuldarsti", 13,9, 6, "tarde");
+insert into tb_alunos (nome, idade, mediaNota, serie, periodo) values ("Leticia Maria", 14, 8, 6, "manhã");
+
+select * from tb_alunos where mediaNota >= 7;
+
+select * from tb_alunos where mediaNota < 7;
+
+update tb_alunos set mediaNota = 1 where id = 2;

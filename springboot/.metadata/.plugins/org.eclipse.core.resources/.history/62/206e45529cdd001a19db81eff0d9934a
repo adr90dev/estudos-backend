@@ -1,0 +1,41 @@
+/*
+ * Escrever um programa que leia uma quantidade desconhecida de números e conte quantos deles estão nos seguintes intervalos: [0-25], [26-50], [51-75] e [76-100].
+ * A entrada de dados deve terminar quando for lido um número negativo.
+ */
+package revisao;
+
+import java.util.Scanner;
+
+public class exercicio3 {
+
+	public static void main (String[] args) {
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		int n, x=0, y=0, z=0, w=0;
+		
+		System.out.println("Digite um número: ");
+		n = entrada.nextInt();
+		
+		while (n<0) {
+		
+			if (n>=0 && n<=25){
+			x++;
+			}
+			if (n>=26 && n<=50){
+			y++;
+			}
+			if (n>=51 && n<=75){
+			z++;
+			}
+			if (n>=76 && n<=100){
+			w++;
+			}
+		}
+		System.out.println("A quantidade de valores digitados que estão entreo o intervalo [0-25] é de: "+x);
+		System.out.println("A quantidade de valores digitados que estão entreo o intervalo [26-50] é de: "+y);
+		System.out.println("A quantidade de valores digitados que estão entreo o intervalo [51-75] é de: "+z);
+		System.out.println("A quantidade de valores digitados que estão entreo o intervalo [76-100] é de: "+w);
+	}
+	
+}

@@ -1,0 +1,264 @@
+Atividade 1
+
+Crie um banco de dados para um serviço de um game Online , o nome do banco deverá ter
+o seguinte nome db_generation_game_online, onde, o sistema trabalhará com as
+informações dos personagens desse game.
+
+O sistema trabalhará com 2 tabelas tb_personagem e tb_classe.
+
+siga exatamente esse passo a passo:
+
+Crie uma tabela tb_classe utilizando a habilidade de abstração e determine 3 atributos
+relevantes do Cargos para se trabalhar com o serviço desse game Online.
+
+Crie uma tabela tb_personagem e utilizando a habilidade de abstração e determine 5
+atributos relevantes dos funcionários para se trabalhar com o serviço desse game Online
+(não esqueça de criar a foreign key de tb_cargo nesta tabela).
+
+Popule esta tabela classe com até 5 dados.
+
+Popule esta tabela personagem com até 8 dados.
+
+Faça um select que retorne os funcionários com o poder de ataque maior do que 2000.
+
+Faça um select trazendo os funcionários com poder de defesa entre 1000 e 2000.
+
+Faça um select utilizando LIKE buscando os personagens com a letra C.
+
+Faça um um select com Inner join entre tabela classe e personagem.
+
+Faça um select onde traga todos os personagem de uma classe específica (exemplo todos
+os personagens que são arqueiros).
+salve as querys para cada uma dos requisitos o exercício em um arquivo .SQL ou texto e
+coloque no seu GitHuB pessoal e compartilhe esta atividade.
+
+
+create database db_generation_game_online;
+
+use db_generation_game_online;
+
+create table tb_classe(
+    id bigint (5) auto_increment,
+    classe varchar (20),
+    poderAtq int,
+    poderDef int,
+    poderHabil int,
+
+    primary key (id)
+);
+
+create table tb_personagem(
+    id bigint auto_increment,
+    nome varchar (50),
+    idade int,
+    raca varchar (20),
+    genero varchar (20),
+    id_classe bigint,
+    
+    primary key (id),
+    foreign key (id_classe) references tb_classe (id)
+);
+
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("Drigar", 30, "Humano", "Masculino", 1);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("Binholaden", 33, "Humano", "Masculino", 2);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("Caos", 33, "Fauno", "Masculino", 3);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("Geldan", 31,"Gigante", "Masculino", 4);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("WRB", 30, "Anão", "Masculino", 5);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("Totonho", 28, "Dragoniano", "Masculino", 1);
+insert into tb_personagem (nome, idade, raca, genero, id_classe) values ("SonOfLight", 100, "Humano", "Masculino", 1);
+
+
+insert into tb_classe (classe, poderAtq, poderDef, poderHabil) values ("Guerreiro", 7, 8, 2);
+insert into tb_classe (classe, poderAtq, poderDef, poderHabil) values ("Arqueiro", 9, 5, 3);
+insert into tb_classe (classe, poderAtq, poderDef, poderHabil) values ("Mago", 3, 5, 9);
+insert into tb_classe (classe, poderAtq, poderDef, poderHabil) values ("Necromante", 7, 5, 5);
+insert into tb_classe (classe, poderAtq, poderDef, poderHabil) values ("Lanceiro", 8, 7, 2);
+
+
+select * from tb_personagem
+inner join tb_classe on tb_classe.id = tb_personagem.id_classe where poderAtq > 2000;
+
+select * from tb_personagem
+inner join tb_classe on tb_classe.id = tb_personagem.id_classe where poderAtq between 1000 and 2000;
+
+select * from tb_personagem
+inner join tb_classe on tb_classe.id = tb_personagem.id_classe where tb_personagem.nome like "%c%";
+
+select * from tb_personagem
+inner join tb_classe on tb_classe.id = tb_personagem.id_classe where classe = "Guerreiro";
+
+=========================================================================================================================================
+
+Atividade 2
+
+Crie um banco de dados para um serviço de pizzaria de uma empresa, o nome do banco
+deverá ter o seguinte nome db_pizzaria_legal, onde o sistema trabalhará com as
+informações dos produtos desta empresa.
+
+O sistema trabalhará com 2 tabelas tb_pizza e tb_categoria.
+
+siga exatamente esse passo a passo:
+
+Crie uma tabela de categorias utilizando a habilidade de abstração e determine 3 atributos
+relevantes do tb_categoria para se trabalhar com o serviço dessa pizzaria.
+
+Crie uma tabela de tb_pizza e utilizando a habilidade de abstração e determine 5 atributos
+relevantes dos tb_produto para se trabalhar com o serviço dessa pizzaria(não esqueça de
+criar a foreign key de tb_categoria nesta tabela).
+
+Popule esta tabela Categoria com até 5 dados.
+
+Popule esta tabela pizza com até 8 dados.
+
+Faça um select que retorne os Produtos com o valor maior do que 45 reais.
+
+Faça um select trazendo os Produtos com valor entre 29 e 60 reais.
+
+Faça um select utilizando LIKE buscando os Produtos com a letra C.
+
+Faça um um select com Inner join entre tabela categoria e pizza.
+
+Faça um select onde traga todos os Produtos de uma categoria específica (exemplo todos
+os produtos que são pizza doce).
+salve as querys para cada uma dos requisitos o exercício em um arquivo .SQL ou texto e
+coloque no seu GitHuB pessoal e compartilhe esta atividade.
+
+/* create database db_pizzaria_legal;
+use db_pizzaria_legal;
+
+create table tb_categoria (
+id bigint (5) auto_increment,
+vegetariana boolean,
+nao_vegetariana boolean,
+
+primary key (id)
+);
+
+create table tb_pizza (
+	id bigint auto_increment,
+    sabor varchar(20),
+    preco decimal (5,2),
+    borda_recheada boolean,
+    broto boolean,
+    id_categoria bigint,
+    
+    primary key (id),
+    foreign key (id_categoria) references tb_categoria (id)
+);
+
+insert into tb_categoria (vegetariana, nao_vegetariana) values (true, false);
+insert into tb_categoria (vegetariana, nao_vegetariana) values (true, false);
+insert into tb_categoria (vegetariana, nao_vegetariana) values (false, true);
+insert into tb_categoria (vegetariana, nao_vegetariana) values (false, true);
+insert into tb_categoria (vegetariana, nao_vegetariana) values (false, true);
+
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Mussarela", true, 20, false, 1);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Calabresa", false, 20, false, 3);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Peperoni", false, 30, false, 4);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Frango com Catupity", false, 35, false, 4);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Quatro queijos", true, 40, false, 2);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Escarola", true, 50, true, 1);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Atum", true, 20, false, 3);
+insert into tb_pizza (sabor, borda_recheada, preco, broto, id_categoria) values ("Portuguesa", true, 30, false, 1);
+
+
+
+select * from tb_pizza
+inner join tb_categoria on tb_categoria.id = tb_pizza.id_categoria where preco > 45;
+
+select * from tb_pizza
+inner join tb_categoria on tb_categoria.id = tb_pizza.id_categoria where preco between 29 and 60;
+
+select * from tb_pizza
+inner join tb_categoria on tb_categoria.id = tb_pizza.id_categoria where tb_pizza.sabor like "%c%";
+
+select * from tb_pizza
+inner join tb_categoria on tb_categoria.id = tb_pizza.id_categoria;*/
+
+======================================================================================================================================================
+
+Atividade 3
+
+Crie um banco de dados para um serviço de farmácia de uma empresa, o nome do banco
+deverá ter o seguinte nome db_farmacia_do_bem, onde o sistema trabalhará com as
+informações dos produtos desta empresa.
+
+O sistema trabalhará com 2 tabelas tb_produto e tb_categoria.
+
+siga exatamente esse passo a passo:
+
+Crie uma tabela de categorias utilizando a habilidade de abstração e determine 3 atributos
+relevantes do tb_categoria para se trabalhar com o serviço desta farmacia.
+
+Crie uma tabela de tb_produto e utilizando a habilidade de abstração e determine 5
+atributos relevantes dos tb_produto para se trabalhar com o serviço deste farmacia(não
+esqueça de criar a foreign key de tb_categoria nesta tabela).
+
+Popule esta tabela Categoria com até 5 dados.
+
+Popule esta tabela Produto com até 8 dados.
+
+Faça um select que retorne os Produtos com o valor maior do que 50 reais.
+
+Faça um select trazendo os Produtos com valor entre 3 e 60 reais.
+
+Faça um select utilizando LIKE buscando os Produtos com a letra B.
+
+Faça um um select com Inner join entre tabela categoria e produto.
+
+Faça um select onde traga todos os Produtos de uma categoria específica (exemplo todos
+os produtos que são cosméticos).
+salve as querys para cada uma dos requisitos o exercício em um arquivo .SQL ou texto e
+coloque no seu GitHuB pessoal e compartilhe esta atividade.
+
+
+/*create database db_farmacia_do_bem;
+use db_farmacia_do_bem;
+
+create table tb_categoria(
+	id bigint (5) auto_increment,
+    nome varchar (30),
+    restricao varchar (20),
+    
+    primary key (id)
+);
+
+create table tb_produto (
+	id bigint auto_increment,
+    nome varchar (50),
+    preco decimal (5,2),
+    ativo boolean,
+    formato varchar (20),
+    id_categoria bigint,
+    
+    primary key (id),
+    foreign key (id_categoria) references tb_categoria (id)
+);
+
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Dorflex", 5.52, true, "10 comprimidos", 1);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Xarelto", 74.82, true, "10 comprimidos", 2);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Neosadina", 14.99, true, "20 drágeas", 1);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Addera D3",50.99, true, "30 cápsulas", 3);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Torsilax", 12.68, true, "30 comprimidos", 1);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Amoxicilina", 12.40, true, "15 cápsulas", 4);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Diclofenaco Dietilamônio", 9.99, true, "pomada (12 gramas)", 5);
+insert into tb_produto (nome, preco, ativo, formato, id_categoria) values ("Loratamed", 10.90, true, "12 comprimidos", 6);
+
+insert into tb_categoria (nome, restricao) values ("Analgésico", "Não controlado");
+insert into tb_categoria (nome, restricao) values ("Anticoagulante", "Não controlado");
+insert into tb_categoria (nome, restricao) values ("Vitamina", "Não controlado");
+insert into tb_categoria (nome, restricao) values ("Antibiótico", "Controlado");
+insert into tb_categoria (nome, restricao) values ("Anti-Inflamatório", "Não controlado");
+insert into tb_categoria (nome, restricao) values ("Anti-Alérgico", "Não controlado");
+
+select * from tb_produto
+inner join tb_categoria on tb_categoria.id = tb_produto.id_categoria where preco > 50;
+
+select * from tb_produto
+inner join tb_categoria on tb_categoria.id = tb_produto.id_categoria where preco between 3 and 60;
+
+select * from tb_produto
+inner join tb_categoria on tb_categoria.id = tb_produto.id_categoria where tb_produto.nome like "%b%";
+
+select * from tb_produto
+inner join tb_categoria on tb_categoria.id = tb_produto.id_categoria;*/

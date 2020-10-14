@@ -1,0 +1,152 @@
+Crie um banco de dados com o nome de “db_diversos”;
+Dentro desse banco de dados devem conter as seguintes tabelas e os seguintes SELECT’s:
+1. Uma tabela que represente uma escola, contendo:
+ ID do aluno;
+ Idade do aluno;
+ + 5 informações que você considera importante;
+
+*Importante a tabela precisa ter 15 dados de alunos;
+Para essa tabela considere fazer o SELECT que retorne:
+ Todos os participantes maiores que 18 anos;
+ Todos os participantes menores que 18 anos;
+ Todos os participantes com a idade entre 20 e 25 anos;
+
+create database db_diversos;
+use db_diversos
+create table tb_escola(
+	id bigint auto_increment,
+    nome varchar(50),
+    idade int,
+    serie int,
+    periodo varchar(10),
+    media int,
+    situação varchar (15),
+    
+    primary key (id)    
+)
+
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Ademir da Guia", 13, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Edson Batista", 12, 6, "tarde", 5, "Reprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Garrincha de Oliveira", 13, 6, "manhã", 6, "Recuperação");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Marta Rocha", 13, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Bernardo Gomes", 13, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Matheus Vieira", 12, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Magda Antibes", 12, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Cassandra Antunes", 13, 6, "tarde", 3, "Reprovadp");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Rogerio Ceni", 14, 6, "tarde", 5, "Reprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Decio Marco", 13, 6, "tarde", 5, "Reprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Marco Antonio", 14, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Rosa de Cassia", 13, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Vilma Alvez", 13, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Antonio de Matos", 12, 6, "manhã", 8, "Aprovado");
+insert into tb_escola (nome, idade, serie, periodo, media, situação) values ("Vitor Junior", 13, 6, "manhã", 6, "Recuperação");
+
+select * from tb_escola where idade < 18
+
+select * from tb_escola where idade > 18
+
+select * from tb_escola where idade between 20 and 25
+
+
+==============================================================================================================================================
+
+2. Uma tabela que represente um petshop, contendo:
+ ID do animal;
+ Peso do animal;
+ + 5 informações que você considera importante;
+
+*Importante a tabela também precisa ter 15 dados;
+Para essa tabela considere fazer o SELECT que retorne:
+ Todos os animais maiores que 10 kilos;
+ Todos os animais menores que 10 kilos;
+ Todos os animais es com a idade entre 10 e 30 kilos;
+
+use db_diversos
+create table tb_petshop(
+	id bigint auto_increment,
+    peso float,
+    especie varchar(20),
+    nome varchar (20),
+    idade int,
+    entrada datetime,
+    alta datetime,
+    sexo varchar (10)
+    
+    primary key (id)
+)
+
+alter table tb_petshop add sexo varchar (10)
+
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (20.0, "cachorro", "Sherlock", 8, "2020-06-23 06:15:00", "2020-06-26 11:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (25.0, "cachorro", "Dini", 8, "2020-05-23 12:45:00", "2020-05-23 15:00:00", "femea");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (5.0, "cachorro", "Bebe", 6, "2020-01-02 05:10:00", "2020-01-02 10:05:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (3.0, "gato", "Mimi", 4, "2020-03-23 09:45:00", "2020-03-26 09:00:00", "femea");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (1.5, "Papagaio", "Loreco", 5, "2020-04-04 02:20:00", "2020-04-04 03:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (0.1, "periquito", "Kiko", 3, "2020-08-23 09:45:00", "2020-08-26 09:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (25, "cachorro", "Bubby", 1, "2020-09-25 09:45:00", "2020-09-25 12:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (6.0, "cachorro", "Bob", 8, "2019-08-23 09:45:00", "2019-08-26 15:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (3.0, "coelho", "MrRabbit", 1, "2020-08-23 07:45:00", "2020-08-26 09:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (0.2, "peixe", "Mobby", 1, "2020-08-23 06:45:00", "2020-08-26 09:00:00", "macho");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (9.0, "cachorro", "Zara", 1, "2020-08-23 09:45:00", "2020-08-26 09:00:00", "femea");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (1.0, "coruja", "Hohoo", 2, "2018-05-23 10:45:00", "2018-05-23 12:00:00", "femea");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (10.0, "cobra", "Nagile", 5, "2020-08-23 09:45:00", "2020-08-26 12:00:00", "femea");
+insert into tb_petshop (peso, especie, nome, idade, entrada, alta, sexo) values (5.0, "porco", "Jorge", 3, "2017-08-01 11:45:00", "2017-08-01 15:00:00", "macho");
+
+select * from tb_petshop where peso > 10
+
+select * from tb_petshop where peso < 10
+
+select * from tb_petshop where peso between 10 and 30
+
+
+=============================================================================================================================================================
+
+3. Uma tabela que represente um varejo, contendo:
+ ID do produto;
+ Preço do produto;
+ Categoria do produto ( Ex: quarto/sala / cozinha / banheiro)
+ 4 informações que você considera importante;
+
+*Importante a tabela também precisa ter 15 dados;
+Para essa tabela considere fazer o SELECT que retorne:
+ Todos os produtos que comecem com a letra “A”;
+ Todos os produtos de uma determinada categoria;
+ Todos os produtos entre $ 1.000 e 1.500 de uma determinada categoria;
+ Todos os produtos listados por uma categoria utilizando like;
+
+use db_diversos
+create table tb_produtos(
+	id_produto bigint(5) auto_increment,
+    categoria varchar (50),
+    preco decimal (10,2),
+    marca varchar (15),
+    ativo boolean,
+    
+    primary key (id_produto)
+)
+
+alter table tb_produtos add tipo varchar (25)
+
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("cozinha", 1500.00, "eletrolux", true, "fogão");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("cozinha", 500.00, "eletrolux", true, "microondas");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("cozinha", 3500.00, "eletrolux", true, "lava-louças");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("cozinha", 2500.00, "eletrolux", true, "geladeira");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("sala", 4000.00, "lg", true, "televisão");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("sala", 1500.00, "samsung", true, "hometheater");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("sala", 1500.00, "sony", true, "PS4");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("sala", 5000.00, "sentado nas nuvens", true, "sofá");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("sala", 1500.00, "madeira madeira", true, "painel");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("quarto", 4500.00, "madeira madeira", true, "cama king");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("quarto", 3500.00, "madeira madeira", true, "guarda-roupas");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("quarto", 500.00, "mobli", true, "sapateira");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("quarto", 1000.00, "mobli", true, "cômoda");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("banheiro", 100.00, "ducha", true, "chuveiro");
+insert into tb_produtos (categoria, preco, marca, ativo, tipo) values ("banheiro", 300.00, "sentado nas nuvens", true, "vaso sanitário");
+
+select * from tb_produtos where tipo like "a%"
+
+select * from tb_produtos where categoria="cozinha";
+
+select * from tb_produtos where categoria="cozinha" and preco between 1000.00 and 1500.00;
+
+select * from tb_produtos where categoria like "%sala%";
